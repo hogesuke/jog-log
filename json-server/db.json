@@ -1,0 +1,30 @@
+{
+  "runners": [
+    {
+      "id": 1,
+      "name": "yamada"
+    },
+    {
+      "id": 2,
+      "name": "satou"
+    },
+    {
+      "id": 3,
+      "name": "tanaka"
+    }
+  ],
+  "logs": [
+    {
+      "id": 1,
+      "distance": 1000
+    },
+    {
+      "id": 2,
+      "distance": 2000
+    },
+    {
+      "id": 3,
+      "distance": 3000
+    }
+  ]
+}
