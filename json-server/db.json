@@ -16,15 +16,18 @@
   "logs": [
     {
       "id": 1,
+      "runnerId": 1,
       "distance": 1000
     },
     {
       "id": 2,
+      "runnerId": 1,
       "distance": 2000
     },
     {
       "id": 3,
-      "distance": 3000
+      "runnerId": 2,
+      "distance": 1200
     }
   ]
 }

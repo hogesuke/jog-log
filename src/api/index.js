@@ -1,9 +1,18 @@
 import axios from 'axios';
 
-export function fetchRunners (callback) {
-  axios.get('/api/runners')
-    .then(res => callback(res.data))
-    .catch(e => {
-      console.error(e);
-    });
-}
+export default {
+  async fetchRunners () {
+    return axios.get('/api/runners')
+      .then(res => res.data)
+      .catch(e => {
+        console.error(e);
+      });
+  },
+  async fetchRunnerLogs (runnerId) {
+    axios.get(`/api/runners/${runnerId}/logs`)
+      .then(res => res.data)
+      .catch(e => {
+        console.error(e);
+      });
+  }
+};

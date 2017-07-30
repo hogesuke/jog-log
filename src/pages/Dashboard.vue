@@ -1,13 +1,13 @@
 <template>
-  <runner-list></runner-list>
+  <log-summary></log-summary>
 </template>
 
 <script>
-  import RunnerList from '../components/RunnerList';
+  import LogSummary from '../components/LogSummary';
 
   export default {
     components: {
-      RunnerList
+      LogSummary
     },
     data () {
       return {

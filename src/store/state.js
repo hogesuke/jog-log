@@ -1,4 +1,4 @@
 export default {
   runners: [],
-  logs: []
+  runnerLogs: []
 };

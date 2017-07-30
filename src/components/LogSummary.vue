@@ -14,17 +14,22 @@
       return {
       };
     },
-    created: function () {
-      this.fetchRunners();
+    created: async function () {
+      const hoge = await this.fetchRunners();
+      hoge.forEach(a => {
+        this.fetchRunnerLogs(a.id);
+      });
     },
     methods: {
       ...mapActions([
-        'fetchRunners'
+        'fetchRunners',
+        'fetchRunnerLogs'
       ])
     },
     computed: {
       ...mapState([
-        'runners'
+        'runners',
+        'logs'
       ])
     }
   };
