@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <ul>
       <li v-for="runner in runners">{{ runner.name }}</li>
     </ul>
@@ -14,11 +14,8 @@
       return {
       };
     },
-    mounted: () => {
-//      debugger;
-//      this.fetchRunners();
-      debugger;
-      this.$store.dispatch('fetchRunners');
+    created: function () {
+      this.fetchRunners();
     },
     methods: {
       ...mapActions([
