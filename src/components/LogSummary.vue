@@ -15,6 +15,7 @@
       };
     },
     created: async function () {
+      // TODO: ここでこのロードをやるのはおかしい気がする
       const hoge = await this.fetchRunners();
       hoge.forEach(a => {
         this.fetchRunnerLogs(a.id);
