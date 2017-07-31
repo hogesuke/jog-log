@@ -4,6 +4,9 @@
       <tr v-for="runner in runners">
         <td>{{ runner.name }}</td>
         <td>{{ totalDistance(runner.id) }}</td>
+        <td>
+          <el-button type="text">Add</el-button>
+        </td>
       </tr>
     </table>
   </div>
