@@ -1,8 +1,11 @@
 <template>
   <div>
-    <ul>
-      <li v-for="runner in runners">{{ runner.name }}</li>
-    </ul>
+    <table>
+      <tr v-for="runner in runners">
+        <td>{{ runner.name }}</td>
+        <td>{{ totalDistance(runner.id) }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -11,8 +14,7 @@
 
   export default {
     data () {
-      return {
-      };
+      return {};
     },
     created: async function () {
       // TODO: ここでこのロードをやるのはおかしい気がする
@@ -22,6 +24,14 @@
       });
     },
     methods: {
+      totalDistance (runnerId) {
+        const logs = this.runnerLogs[runnerId];
+        if (logs) {
+          return logs.reduce((sum, a) => sum + a.distance, 0);
+        } else {
+          return 0;
+        }
+      },
       ...mapActions([
         'fetchRunners',
         'fetchRunnerLogs'
@@ -30,7 +40,7 @@
     computed: {
       ...mapState([
         'runners',
-        'logs'
+        'runnerLogs'
       ])
     }
   };

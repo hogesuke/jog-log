@@ -9,7 +9,7 @@ export default {
       });
   },
   async fetchRunnerLogs (runnerId) {
-    axios.get(`/api/runners/${runnerId}/logs`)
+    return axios.get(`/api/runners/${runnerId}/logs`)
       .then(res => res.data)
       .catch(e => {
         console.error(e);

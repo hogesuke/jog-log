@@ -10,8 +10,8 @@ export default {
     });
   },
   async fetchRunnerLogs ({ commit }, runnerId) {
-    return api.fetchRunnerLogs(runnerId, data => {
-      commit(types.SET_RUNNER_LOGS, { data });
+    return api.fetchRunnerLogs(runnerId).then(data => {
+      commit(types.SET_RUNNER_LOGS, { data, runnerId });
       return data;
     });
   }
