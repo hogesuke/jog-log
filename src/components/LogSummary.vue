@@ -16,13 +16,6 @@
     data () {
       return {};
     },
-    created: async function () {
-      // TODO: ここでこのロードをやるのはおかしい気がする
-      const hoge = await this.fetchRunners();
-      hoge.forEach(a => {
-        this.fetchRunnerLogs(a.id);
-      });
-    },
     methods: {
       totalDistance (runnerId) {
         const logs = this.runnerLogs[runnerId];
@@ -31,11 +24,7 @@
         } else {
           return 0;
         }
-      },
-      ...mapActions([
-        'fetchRunners',
-        'fetchRunnerLogs'
-      ])
+      }
     },
     computed: {
       ...mapState([
