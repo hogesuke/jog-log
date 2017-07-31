@@ -1,14 +1,35 @@
 <template>
   <div>
-    <table>
-      <tr v-for="runner in runners">
-        <td>{{ runner.name }}</td>
-        <td>{{ totalDistance(runner.id) }}</td>
-        <td>
-          <el-button type="text">Add</el-button>
-        </td>
-      </tr>
-    </table>
+    <el-table :data="summary">
+      <el-table-column type="expand">
+        <template scope="props">
+          <el-table
+            :data="props.row.logs"
+            :show-header="true">
+            <el-table-column
+              label="date"
+              prop="date"
+              align="left">
+            </el-table-column>
+            <el-table-column
+              label="mileage"
+              prop="mileage"
+              align="left">
+            </el-table-column>
+          </el-table>
+        </template>
+      </el-table-column>
+      <el-table-column
+        label="name"
+        prop="name"
+        align="left">
+      </el-table-column>
+      <el-table-column
+        label="total mileage"
+        prop="totalMileage"
+        align="left">
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -20,16 +41,24 @@
       return {};
     },
     methods: {
-      totalDistance (runnerId) {
+      totalMileage (runnerId) {
         const logs = this.runnerLogs[runnerId];
         if (logs) {
-          return logs.reduce((sum, a) => sum + a.distance, 0);
+          return logs.reduce((sum, a) => sum + a.mileage, 0);
         } else {
           return 0;
         }
       }
     },
     computed: {
+      summary () {
+        // TODO: サーバサイドでtotalMileageをセットしたい
+        return this.runners.map(a => {
+          a.totalMileage = this.totalMileage(a.id);
+          a.logs = this.runnerLogs[a.id];
+          return a;
+        });
+      },
       ...mapState([
         'runners',
         'runnerLogs'

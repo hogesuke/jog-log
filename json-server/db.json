@@ -17,17 +17,20 @@
     {
       "id": 1,
       "runnerId": 1,
-      "distance": 1000
+      "date": "2017-01-01",
+      "mileage": 1000
     },
     {
       "id": 2,
       "runnerId": 1,
-      "distance": 2000
+      "date": "2017-01-02",
+      "mileage": 2000
     },
     {
       "id": 3,
       "runnerId": 2,
-      "distance": 1200
+      "date": "2017-01-03",
+      "mileage": 1200
     }
   ]
 }
