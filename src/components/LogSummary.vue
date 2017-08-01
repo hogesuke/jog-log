@@ -14,6 +14,14 @@
               label="mileage"
               prop="mileage">
             </el-table-column>
+            <el-table-column
+              label="Operations"
+              width="140">
+              <template scope="scope">
+                <el-button type="text">Edit</el-button>
+                <el-button type="text">Delete</el-button>
+              </template>
+            </el-table-column>
           </el-table>
         </template>
       </el-table-column>
@@ -24,6 +32,13 @@
       <el-table-column
         label="total mileage"
         prop="totalMileage">
+      </el-table-column>
+      <el-table-column
+        label="Operations"
+        width="120">
+        <template scope="scope">
+          <el-button type="text">Add</el-button>
+        </template>
       </el-table-column>
     </el-table>
   </div>
