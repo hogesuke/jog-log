@@ -8,26 +8,22 @@
             :show-header="true">
             <el-table-column
               label="date"
-              prop="date"
-              align="left">
+              prop="date">
             </el-table-column>
             <el-table-column
               label="mileage"
-              prop="mileage"
-              align="left">
+              prop="mileage">
             </el-table-column>
           </el-table>
         </template>
       </el-table-column>
       <el-table-column
         label="name"
-        prop="name"
-        align="left">
+        prop="name">
       </el-table-column>
       <el-table-column
         label="total mileage"
-        prop="totalMileage"
-        align="left">
+        prop="totalMileage">
       </el-table-column>
     </el-table>
   </div>
