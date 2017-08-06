@@ -1,18 +1,37 @@
 <template>
   <div id="app">
     <side-bar id="sidebar"></side-bar>
-    <router-view id="page-container"></router-view>
+    <router-view id="page-container" :v-if="loaded"></router-view>
   </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
   import SideBar from './components/SideBar';
 
   export default {
+    name: 'app',
     components: {
       SideBar
     },
-    name: 'app'
+    data () {
+      return {
+        loaded: false
+      };
+    },
+    created: async function () {
+      const runners = await this.fetchRunners();
+      runners.forEach(async a => {
+        await this.fetchRunnerLogs(a.id);
+        this.loaded = true;
+      });
+    },
+    methods: {
+      ...mapActions([
+        'fetchRunners',
+        'fetchRunnerLogs'
+      ])
+    }
   };
 </script>
 

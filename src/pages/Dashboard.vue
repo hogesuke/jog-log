@@ -15,16 +15,8 @@
       };
     },
     created: async function () {
-      const runners = await this.fetchRunners();
-      runners.forEach(a => {
-        this.fetchRunnerLogs(a.id);
-      });
     },
     methods: {
-      ...mapActions([
-        'fetchRunners',
-        'fetchRunnerLogs'
-      ])
     },
     computed: {
     }

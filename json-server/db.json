@@ -29,8 +29,26 @@
     {
       "id": 3,
       "runnerId": 2,
+      "date": "2017-01-02",
+      "mileage": 2100
+    },
+    {
+      "id": 4,
+      "runnerId": 3,
+      "date": "2017-01-02",
+      "mileage": 2200
+    },
+    {
+      "id": 5,
+      "runnerId": 2,
       "date": "2017-01-03",
-      "mileage": 1200
+      "mileage": 3000
+    },
+    {
+      "id": 6,
+      "runnerId": 3,
+      "date": "2017-01-03",
+      "mileage": 3100
     }
   ]
 }
