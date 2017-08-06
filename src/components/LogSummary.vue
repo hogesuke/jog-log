@@ -7,15 +7,15 @@
             :data="props.row.logs"
             :show-header="true">
             <el-table-column
-              label="date"
+              label="日付"
               prop="date">
             </el-table-column>
             <el-table-column
-              label="mileage"
+              label="走行距離"
               prop="mileage">
             </el-table-column>
             <el-table-column
-              label="Operations"
+              label="操作"
               width="140">
               <template scope="scope">
                 <el-button type="text">Edit</el-button>
@@ -26,15 +26,15 @@
         </template>
       </el-table-column>
       <el-table-column
-        label="name"
+        label="名前"
         prop="name">
       </el-table-column>
       <el-table-column
-        label="total mileage"
+        label="合計走行距離"
         prop="totalMileage">
       </el-table-column>
       <el-table-column
-        label="Operations"
+        label="操作"
         width="120">
         <template scope="scope">
           <el-button type="text">Add</el-button>
