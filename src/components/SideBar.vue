@@ -1,10 +1,10 @@
 <template>
-  <el-menu default-active="1">
-    <el-menu-item index="1">
-      Dashboard
+  <el-menu :router="true" default-active="/">
+    <el-menu-item index="/">
+      ダッシュボード
     </el-menu-item>
-    <el-menu-item index="2">
-      Logs
+    <el-menu-item index="/logs">
+      ログ
     </el-menu-item>
   </el-menu>
 </template>

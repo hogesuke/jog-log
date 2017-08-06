@@ -14,5 +14,12 @@ export default {
       .catch(e => {
         console.error(e);
       });
+  },
+  async fetchLogs () {
+    return axios.get(`/api/logs`)
+      .then(res => res.data)
+      .catch(e => {
+        console.error(e);
+      });
   }
 };

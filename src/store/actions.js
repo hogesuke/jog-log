@@ -14,6 +14,12 @@ export default {
       commit(types.SET_RUNNER_LOGS, { data, runnerId });
       return data;
     });
+  },
+  async fetchLogs ({ commit }) {
+    return api.fetchLogs().then(data => {
+      commit(types.SET_LOGS, { data });
+      return data;
+    });
   }
 };
 
