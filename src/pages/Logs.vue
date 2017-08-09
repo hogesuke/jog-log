@@ -1,5 +1,23 @@
 <template>
   <div>
+    <div class="tools">
+      <el-button icon="plus">ログの追加</el-button>
+    </div>
+    <el-form class="log-form" label-width="120px">
+      <el-form-item label="ランナー">
+        <el-select multiple v-model="form.runner">
+          <el-option
+            v-for="runner in runners"
+            :key="runner.id"
+            :label="runner.name"
+            :value="runner.id">
+          </el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="日付">
+        <el-date-picker type="date" placeholder="Pick a date" v-model="form.date"></el-date-picker>
+      </el-form-item>
+    </el-form>
     <el-table :data="normalizedLogs">
       <el-table-column
         label="日付" type="expand">
@@ -33,7 +51,12 @@
       <el-table-column
         label="参加者">
         <template scope="props">
-          <el-tag v-for="runner in props.row.runners" type="gray" class="runner-tag">{{ runner.name }}</el-tag>
+          <el-tag
+            v-for="runner in props.row.runners"
+            :key="runner.id"
+            type="primary"
+            class="runner-tag">{{ runner.name }}
+          </el-tag>
         </template>
       </el-table-column>
     </el-table>
@@ -48,6 +71,10 @@
     },
     data () {
       return {
+        form: {
+          runner: [],
+          date: null
+        }
       };
     },
     created: function () {
@@ -96,5 +123,13 @@
 <style scoped>
   .runner-tag:not(:first-child) {
     margin-left: 5px;
+  }
+
+  .tools {
+    margin-bottom: 10px;
+  }
+
+  .log-form {
+
   }
 </style>

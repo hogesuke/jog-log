@@ -3,11 +3,12 @@
 import Vue from 'vue';
 import App from './App';
 import ElementUI from 'element-ui';
+import locale from 'element-ui/lib/locale/lang/en';
 import 'element-ui/lib/theme-default/index.css';
 import router from './router';
 import store from './store';
 
-Vue.use(ElementUI);
+Vue.use(ElementUI, { locale });
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
