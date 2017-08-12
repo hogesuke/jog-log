@@ -1,23 +1,31 @@
 <template>
   <div>
     <div class="tools">
-      <el-button icon="plus">ログの追加</el-button>
+      <el-button icon="plus" @click="handleOpenFormClick">ログの追加</el-button>
     </div>
-    <el-form class="log-form" label-width="120px">
-      <el-form-item label="ランナー">
-        <el-select multiple v-model="form.runner">
-          <el-option
-            v-for="runner in runners"
-            :key="runner.id"
-            :label="runner.name"
-            :value="runner.id">
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="日付">
-        <el-date-picker type="date" placeholder="Pick a date" v-model="form.date"></el-date-picker>
-      </el-form-item>
-    </el-form>
+
+    <el-dialog title="ログの追加" :visible.sync="dialogFormVisible">
+      <el-form class="log-form" label-width="120px">
+        <el-form-item label="ランナー">
+          <el-select multiple v-model="form.runner">
+            <el-option
+              v-for="runner in runners"
+              :key="runner.id"
+              :label="runner.name"
+              :value="runner.id">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="日付">
+          <el-date-picker type="date" placeholder="Pick a date" v-model="form.date"></el-date-picker>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">キャンセル</el-button>
+        <el-button type="primary" @click="handleConfirmClick">追加</el-button>
+      </span>
+    </el-dialog>
+
     <el-table :data="normalizedLogs">
       <el-table-column
         label="日付" type="expand">
@@ -74,7 +82,8 @@
         form: {
           runner: [],
           date: null
-        }
+        },
+        dialogFormVisible: false
       };
     },
     created: function () {
@@ -83,6 +92,13 @@
     methods: {
       findRunner (id) {
         return this.$store.getters.findRunner(id);
+      },
+      handleOpenFormClick () {
+        this.dialogFormVisible = true;
+      },
+      handleConfirmClick () {
+        this.dialogFormVisible = false;
+        // TODO: 登録処理
       },
       ...mapActions([
         'fetchLogs'
